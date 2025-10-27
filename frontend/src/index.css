@@ -98,3 +98,17 @@ header {
   width: 100%;
   display: block;
 }
+
+select {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background-color: white;
+}
+
+select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}

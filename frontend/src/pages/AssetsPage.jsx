@@ -7,6 +7,8 @@ export default function AssetsPage() {
   const { token, logout } = useAuth();
   const navigate = useNavigate();
 
+  const ASSET_TYPES = ['Laptop', 'Celular', 'Monitor', 'Tablet', 'Otro'];
+
   const [assets, setAssets] = useState([]);
   const [form, setForm] = useState({ id: null, name: '', type: '', owner: '' });
 
@@ -46,9 +48,32 @@ export default function AssetsPage() {
       </header>
 
       <form onSubmit={saveAsset}>
-        <input type="text" placeholder="Nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
-        <input type="text" placeholder="Tipo" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} required />
-        <input type="text" placeholder="Propietario" value={form.owner} onChange={(e) => setForm({ ...form, owner: e.target.value })} />
+        <input
+          type="text"
+          placeholder="Nombre"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          required
+        />
+
+        <select
+          value={form.type}
+          onChange={(e) => setForm({ ...form, type: e.target.value })}
+          required
+        >
+          <option value="">Seleccione un tipo</option>
+          {ASSET_TYPES.map((t) => (
+            <option key={t} value={t}>{t}</option>
+          ))}
+        </select>
+
+        <input
+          type="text"
+          placeholder="Propietario"
+          value={form.owner}
+          onChange={(e) => setForm({ ...form, owner: e.target.value })}
+        />
+
         <button type="submit">{form.id ? 'Actualizar' : 'Agregar'}</button>
       </form>
 
