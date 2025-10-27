@@ -22,13 +22,13 @@ Se puede ejecutar tanto localmente como en contenedores Docker.
 ## 📁 Estructura del proyecto
 ```
 asset-crud/
-├── client/ # Frontend (React + Vite)
+├── frontend/ # Frontend (React + Vite)
 │ ├── src/
 │ ├── public/
 │ ├── package.json
 │ └── Dockerfile
 │
-├── server/ # Backend (Express + Sequelize + JWT)
+├── backend/ # Backend (Express + Sequelize + JWT)
 │ ├── src/
 │ ├── package.json
 │ ├── .env
