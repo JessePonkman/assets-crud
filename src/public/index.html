@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Gestión de Assets</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Gestión de Assets con Auth</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Gestión de Assets</h1>
 
-  <form id="assetForm">
-    <input type="hidden" id="assetId" />
-    <input type="text" id="name" placeholder="Nombre" required />
-    <input type="text" id="type" placeholder="Tipo (Laptop, Celular...)" required />
-    <input type="text" id="owner" placeholder="Propietario" />
-    <button type="submit">Guardar</button>
-  </form>
+  <!-- Sección de autenticación -->
+  <section id="authSection">
+    <h2>Iniciar sesión o registrarse</h2>
+    <form id="authForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <div class="btn-group">
+        <button type="button" id="loginBtn">Login</button>
+        <button type="button" id="registerBtn">Registro</button>
+      </div>
+    </form>
+  </section>
 
-  <table id="assetsTable">
-    <thead>
-      <tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Propietario</th><th>Acciones</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <!-- Sección del CRUD -->
+  <section id="crudSection" style="display: none;">
+    <div class="header">
+      <h2>Mis Assets</h2>
+      <button id="logoutBtn">Cerrar sesión</button>
+    </div>
+
+    <form id="assetForm">
+      <input type="hidden" id="assetId">
+      <input type="text" id="name" placeholder="Nombre" required>
+      <input type="text" id="type" placeholder="Tipo (Laptop, Celular...)" required>
+      <input type="text" id="owner" placeholder="Propietario">
+      <button type="submit">Guardar</button>
+    </form>
+
+    <table id="assetsTable">
+      <thead>
+        <tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Propietario</th><th>Acciones</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
 
   <script src="script.js"></script>
 </body>

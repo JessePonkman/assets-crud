@@ -2,8 +2,11 @@ import express from 'express';
 import { body, param } from 'express-validator';
 import { assetController } from '../controllers/assets.controller.js';
 import { validate } from '../middleware/validate.js';
+import { authenticate } from '../middleware/authMiddleware.js';
 
 export const router = express.Router();
+
+router.use(authenticate);
 
 router.get('/', assetController.list);
 
